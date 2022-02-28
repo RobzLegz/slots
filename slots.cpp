@@ -22,7 +22,7 @@ bool check_for_win(string val1, string val2, string val3){
     return false;
 }
 
-void spin_slot(){
+void play(){
     srand(time(0));
 
     string spin_values[] = {"|", "-", "+"};
@@ -52,7 +52,7 @@ void spin_slot(){
 }
 
 int main(){
-    spin_slot();
+    play();
 
     return 1;
 }
