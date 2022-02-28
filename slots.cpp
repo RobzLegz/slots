@@ -14,18 +14,41 @@ int generate_random_number(){
     return random_number;
 }
 
+bool check_for_win(string val1, string val2, string val3){
+    if(val1 == val2 & val2 == val3){
+        return true;
+    }
+
+    return false;
+}
+
 void spin_slot(){
     srand(time(0));
 
     string spin_values[] = {"|", "-", "+"};
+    string vals[] = {"", "", ""};
 
     for(int i = 0; i < 3; i++){
-        int random_q = generate_random_number();
+        int random_v = generate_random_number();
 
-        string val = spin_values[random_q];
+        string val = spin_values[random_v];
+
+        vals[i] = val;
 
         cout << val << " ";
-    }       
+    }  
+
+    string val1 = vals[0];  
+    string val2 = vals[1];  
+    string val3 = vals[2];  
+
+    bool won = check_for_win(val1, val2, val3);
+
+    if(won){
+        cout << endl << "You win!";
+    }else{
+        cout << endl << "You lose!";
+    }
 }
 
 int main(){
